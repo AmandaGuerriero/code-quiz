@@ -1,0 +1,9 @@
+/* Global Styles Start */
+:root {
+    --primary-text-color: #000000;
+    --secondary-text-color: #ffffff;
+    --button-color: #340034 ;
+    --button-hover-color: #ce00ce;
+    --high-score-hover: #b19cd9;
+    
+}
