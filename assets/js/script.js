@@ -3,6 +3,19 @@ var body = document.body;
 var score = 0;
 var timer = 60;
 
+// Set Timer
+var countdownTimer = setInterval(function(){
+  if(timer <= 0){
+    clearInterval(countdownTimer);
+    document.getElementById("timer").innerHTML = "No Time Left";
+    console.log ("No Time Left")
+  } else {
+    document.getElementById("timer").innerHTML = timer;
+    console.log (timer)
+  }
+  timer -= 1;
+}, 1000);
+
 
 // Set Question & Answer Text
 var questions = [
@@ -37,14 +50,16 @@ var questions = [
     }
 ]
 
+var cycleQuestions = function () {
+    if (questions === questions.length)
+    console.log ("I'm over");
+    else {
+
+    }
+};
+
 // Store our li elements in a variable to style them
 var listItems = document.getElementsByTagName('li');
-
-
-// Append the items
-
-
-// Can append things to exampleEl to list inside
 
 
 // Set Score
@@ -54,3 +69,4 @@ var score = 0
 var setScore = function () {
     scoreEl.textContent = score;
 }
+
