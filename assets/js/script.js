@@ -13,15 +13,15 @@ var secondsRemaining = questions.length * 15
 var scoreScreenEl = document.getElementById("score-screen");
 var initialsEl = document.getElementById("initials");
 var submitBtn = document.getElementById("submit-btn");
-
+var timerEl = document.getElementById("timer");
 
 // Start Quiz Function
 var startQuiz = function () {
     startTimer ();
-    
+
     // Hide Start Screen
     startScreenEl.setAttribute("class", "hide");
-
+    
     // Display Questions
     showQuestions(currentQuestionIndex);
 }
@@ -29,15 +29,13 @@ var startQuiz = function () {
 // Display Questions Function
 var showQuestions = function() {
     questionsEl.removeAttribute ("class", "hide");
-
-
     var currentQuestion = questions[currentQuestionIndex];
 
     // Display Questions
     var titleEl = document.getElementById("q-title");
         titleEl.textContent = currentQuestion.question;
         optionsEl.innerHTML = "";
-        
+    
     // Display Options
     currentQuestion.options.forEach((option, currentQuestionIndex) => {
         var optionsButtons = document.createElement ("button")
@@ -46,17 +44,16 @@ var showQuestions = function() {
         optionsButtons.setAttribute ("class", "optionsButtons")
         optionsButtons.onclick = optionsClick;
         optionsEl.appendChild(optionsButtons);
-    });
-        
+    });    
 }
 
 // Answer Selection Function
 var optionsClick = function () {
-    console.log ("I was clicked")
     // Get correct answer
     var currentAnswer = questions[currentQuestionIndex];
     var answer = currentAnswer.answer;
     console.log(answer);
+    
     // If correct
     if (answer === this.value) {
         score += 10;
@@ -68,20 +65,21 @@ var optionsClick = function () {
         secondsRemaining -= 15;
         document.getElementById("answer-select").innerHTML = "Last answer was wrong!";
         console.log ("This is wrong")
-      }
+    }
+
     // Increment Question Number by 1
     currentQuestionIndex ++; 
-        // Go to next question
-        if (currentQuestionIndex < questions.length) {
-            showQuestions();
-        }
-        // End Quiz
-        else {
-            endQuiz();
-            console.log("This is the end");
-        }
+
+    // Go to next question
+    if (currentQuestionIndex < questions.length) {
+        showQuestions();
+    }
+    // End Quiz
+    else {
+        endQuiz();
+        console.log("This is the end");
+    }
 }
-//}
 
 // Timer Countdown Function
 function startTimer() {
@@ -89,9 +87,11 @@ function startTimer() {
         secondsRemaining -= 1;
         console.log(secondsRemaining);
 
+        //Display Timer
         var timerDisplay = document.getElementById("timer");
         timerDisplay.textContent = "Time: " + secondsRemaining;
 
+        // When time runs out - Remove Timer and End Quiz 
         if (secondsRemaining === 0) {
             clearInterval(timer);
             endQuiz ();
@@ -99,13 +99,12 @@ function startTimer() {
     }, 1000);
 }
 
-// End the Quiz Function
+// End Quiz Function
 function endQuiz() {
-    // startScreenEl.setAttribute ("class", "hide");
+    timerEl.setAttribute ("class", "hide"); 
     questionsEl.setAttribute ("class", "hide");
     scoreScreenEl.removeAttribute ("class", "hide");
     document.getElementById("score").innerHTML = "Your final score is " + score;
-
 }
 
 // Save Score and Initials to local Storage
@@ -115,16 +114,19 @@ function saveHighscore() {
     if (initials !== "") {
         var highscores =
         JSON.parse(window.localStorage.getItem("highscores")) || [];
-
+        
+        // Get the score and initial info
         var newScore = {
             score: score,
             initials: initials
         };
-       // Save to Local Storage
-       highscores.push(newScore);
-       window.localStorage.setItem("highscores", JSON.stringify(highscores));
-       // Redirect to High Scores Page
-       window.location.href = "highscores.html";
+
+        // Save to Local Storage
+        highscores.push(newScore);
+        window.localStorage.setItem("highscores", JSON.stringify(highscores));
+        
+        // Redirect to High Scores Page
+        window.location.href = "highscores.html";
     }
 }
 
@@ -133,4 +135,3 @@ submitBtn.onclick = saveHighscore;
 
 // Go Back - Nice to Have
 startButton.addEventListener("click", startQuiz);
-

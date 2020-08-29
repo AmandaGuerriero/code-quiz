@@ -15,12 +15,15 @@ function printHighscores() {
         olEl.appendChild(liTag);
     });
 }
-   function clearHighscores() {
-     window.localStorage.removeItem("highscores");
-     window.location.reload();
+
+// Clear Highscores
+function clearHighscores() {
+    window.localStorage.removeItem("highscores");
+    window.location.reload();
 }
 
+// Print Highscores
 printHighscores();
 
-// Clear Highscores - Nice to Have
+// Click to clear Highscores
 document.getElementById("clear-btn").onclick = clearHighscores;
