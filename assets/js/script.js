@@ -10,6 +10,7 @@ var clearButton = document.getElementById("clear-btn");
 var optionsEl = document.getElementById("options");
 var startScreenEl = document.getElementById("start-screen");
 var secondsRemaining = questions.length * 15
+var scoreScreenEl = document.getElementById("start-screen");
 
 
 // Start Quiz Function
@@ -51,21 +52,28 @@ var showQuestions = function() {
 
 var optionsClick = function () {
     console.log ("I was clicked")
-    // for(var i = 0; i < questions.length; i++) {
-    var answer = questions.answer
-        if (answer === currentQuestionIndex.answer) {
-            score + 10;
-            console.log("Correct");
-        }  {
-            timer -= 10;
-            console.log("Wrong");
+    var currentAnswer = questions[currentQuestionIndex];
+    var answer = currentAnswer.answer;
+    console.log(answer);
+    if (answer) {
+        // This is correct
+        score += 10;
+        console.log (score)
+        console.log ("This is correct")
+      } else {
+        // This is incorrect.
+        timer -= 10;
+        console.log ("This is wrong")
+      }
+    currentQuestionIndex ++; {
+        if (currentQuestionIndex < questions.length) {
+            showQuestions();
         }
-        currentQuestionIndex ++; {
-            if (currentQuestionIndex < questions.length) {
-                showQuestions();
-            }
+        else {
+            endQuiz();
         }
     }
+}
 //}
 
 // Countdown
@@ -84,6 +92,12 @@ function startTimer() {
     }, 1000);
 }
 
+// End the Quiz
+function endQuiz() {
+    startScreenEl.setAttribute ("class", "hide");
+    questionsEl.setAttribute ("class", "hide");
+    scoreScreenEl.removeAttribute ("class", "hide");
+}
 
 // Clear Highscores - Nice to Have
 clearButton.addEventListener("click", startQuiz);

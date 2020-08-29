@@ -9,7 +9,7 @@
 }
 
 .hide {
-    /* display: none; */
+    display: none;
 }
 
 /* Header Styles */
@@ -80,10 +80,10 @@
 }
 
 /* Scores Styles */
-#score-screen {
-    margin: 0 auto;
-    padding: 20px 20px;
-    text-align: center;
+.scores-info {
+    display: flex;
+    margin: 20px 20px;
+    justify-content: space-around;
 }
 
 .btn {
