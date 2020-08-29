@@ -4,35 +4,33 @@
     --secondary-text-color: #ffffff;
     --button-color: #340034 ;
     --button-hover-color: #ce00ce;
-    --high-score-hover: #b19cd9;
+    --high-score: #b19cd9;
     
-}
-
-/* Header Styles */
-.top {
-    display: flex;
-    justify-items: space-between;
-}
-
-
-#timer {
-    justify-items: flex-end;
-    width: 100%;
-}
-
-#scores {
-    justify-items: flex-start;
 }
 
 .hide {
     /* display: none; */
 }
 
+/* Header Styles */
+.top {
+    display: inline;
+}
+
+#timer {
+    text-align: right;
+}
+
+#scores {
+    text-align: left;
+}
+
+#scores a {
+    color: var(--high-score);
+}
 /* Start Screen Styles */
 #start-screen {
-    margin: 0 auto;
     text-align: center;
-    display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
@@ -51,15 +49,20 @@
     align-items: center;
 }
 
+#start-btn:hover {
+    background-color: var(--button-hover-color);
+}
+
 /* Question Styling */
 #questions {
     margin: 0 auto;
     padding: 20px 20px;
     text-align: center;
-    /* display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center; */
+    align-items: center;
+    /* display: flex; */
+    /* flex-wrap: wrap;
+    justify-content: space-around; */
+    
 }
 
 .optionsButtons {
@@ -68,9 +71,12 @@
     height: 50px;
     width: 150px;
     font-size: 20px;
-    margin: 0 auto;
-    text-align: center;
-    display: block;
+    margin: 10px 10px;
+    vertical-align: middle
+}
+
+.optionsButtons:hover {
+    background-color: var(--button-hover-color);
 }
 
 /* Scores Styles */
@@ -86,8 +92,12 @@
     height: 50px;
     width: 150px;
     font-size: 20px;
-    margin: 0 auto;
+    margin: 10px 10px;
     text-align: center;
-    display: block;
+    vertical-align: middle
+}
+
+.btn:hover {
+    background-color: var(--high-score);
 }
 

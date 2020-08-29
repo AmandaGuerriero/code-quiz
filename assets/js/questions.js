@@ -3,19 +3,19 @@ const questions = [
     {
         question: "Commonly used data types DO NOT include_______.",
         options: ["strings", "booleans", "numbers", "alerts"],
-        answer: "alerts"
+        answer: "1"
     },
     
     {
         question: "The condition in an if / else statement is enclosed within_______.",
         options: ["quotes", "curly brackets", "parentheses", "square brackets"],
-        answer: ""
+        answer: "1"
     },
 
     {
         question: "Arrays in Javascript can be used to store_______.",
         options: ["numbers and strings", "other arrays", "booleans", "all of the above"],
-        answer: "Numbers"
+        answer: "1"
     },
 
     {

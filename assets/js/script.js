@@ -75,7 +75,7 @@ function startTimer() {
         console.log(secondsRemaining);
 
         var timerDisplay = document.getElementById("timer");
-        timerDisplay.textContent = "Timer " + secondsRemaining;
+        timerDisplay.textContent = "Time: " + secondsRemaining;
 
         if (secondsRemaining === 0) {
             clearInterval(timer);
@@ -86,9 +86,8 @@ function startTimer() {
 
 
 // Clear Highscores - Nice to Have
-goBackButton.addEventListener("click", startQuiz);
+clearButton.addEventListener("click", startQuiz);
 
 // Go Back - Nice to Have
-
 startButton.addEventListener("click", startQuiz);
 
