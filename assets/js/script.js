@@ -2,14 +2,22 @@
 var body = document.body;
 var score = 0;
 var timer = 60;
-var initials = document.createElement ("div")
-var button = document.createElement ("button");
-var startQuiz = document.createElement ("div")
+var startButton = document.getElementById("start-btn");
+var questionsEl = document.getElementById("questions");
+var optionsEl = document.getElementById("options");
 
-// Start Quiz Page
-var startQuizScreen = function () {
-    button.innerHTML = "Start Quiz"
+
+// Start Quiz
+var startQuiz = function () {
+    var startScreenEl = document.getElementById("start-screen");
+    startScreenEl.setAttribute("class", "hide");
 }
+// Hide Start Screen
+
+// Display Questions
+// displayQuestion ();
+
+
 
 
 // Countdown Timer
@@ -61,17 +69,17 @@ var questions = [
 
 // document.getElementById("questions").textContent = questions;
 
-for(var i = 0; i < questions.length; i++) {
-    var answer = prompt(questions[i].question);
-    if (answer === questions[i].answer) {
-        score++;
-        alert("Correct");
-    }
-    else {
-        timer - 10;
-        alert("Wrong");
-    }
-}
+ for(var i = 0; i < questions.length; i++) {
+     var answer = prompt(questions[i].question);
+     if (answer === questions[i].answer) {
+         score++;
+         alert("Correct");
+     }
+     else {
+         timer -= 15;
+         alert("Wrong");
+     }
+ }
 
 // Show User's Score
 alert("You Scored" + score + " points.");
@@ -81,8 +89,10 @@ alert("You Scored" + score + " points.");
 
 // Show All Scores 
 
+
 // Clear Highscores - Nice to Have
 
 // Go Back - Nice to Have
 
+startButton.addEventListener("click", startQuiz);
 

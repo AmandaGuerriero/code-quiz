@@ -10,13 +10,30 @@
 <body>
     <header>
         <div id="timer">
-            
+
+        </div>
+        <div id="scores">
+            <p>View High Scores</p>
         </div>
     </header>
-    <main>
-        <div class="questions">
-            
+    <main class="wrapper">
+        <div id="start-screen" class="start">
+            <h1>Coding Quiz</h1>
+            <p>Try to answer the code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by 15 seconds!</p>
+            <button id="start-btn">Start Quiz</button>
         </div>
+        <div id="questions" class="hide">
+            <h2 id="q-title"></h2>
+            <div id="options"></div>
+        </div>
+        <div id="score-screen" class="hide">
+            <h1>All Done!</h1>
+            <h2>Your score is <span id="score"></span></h2>
+            <p>Enter initials</p>
+            <button class="btn">Go Back</button>
+            <button class="btn">Clear High Scores</button>
+        </div>
+
     </main>
     <footer>
 
