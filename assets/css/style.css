@@ -1,11 +1,15 @@
 /* Global Styles Start */
 :root {
+    --backround-color: #f5f5dc;  
     --primary-text-color: #000000;
     --secondary-text-color: #ffffff;
     --button-color: #340034 ;
     --button-hover-color: #ce00ce;
     --high-score: #b19cd9;
-    
+}
+
+body {
+    background-color: var (var(--backround-color));
 }
 
 .hide {
@@ -35,6 +39,13 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    width: 50%;
+    margin: 0 auto;
+}
+
+#start-screen p {
+    font-size: 20px;
+    font-weight: lighter;
 }
 
 #start-btn {
@@ -91,16 +102,18 @@
 }
 
 /* Scores Styles */
+#score-screen {
+    text-align: center;
+}
 .scores-info {
-    display: flex;
+    display: block;
     margin: 20px 20px;
-    justify-content: space-around;
 }
 
 .btn, .btn a {
     color: var(--secondary-text-color);
     background-color: var(--button-color);
-    height: 50px;
+    height: 30px;
     width: 150px;
     font-size: 20px;
     margin: 10px 10px;

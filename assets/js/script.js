@@ -104,6 +104,8 @@ function endQuiz() {
     // startScreenEl.setAttribute ("class", "hide");
     questionsEl.setAttribute ("class", "hide");
     scoreScreenEl.removeAttribute ("class", "hide");
+    document.getElementById("score").innerHTML = "Your final score is " + score;
+
 }
 
 // Save Score and Initials to local Storage
@@ -150,15 +152,12 @@ function printHighscores() {
      window.location.reload();
    }
 
-// document.getElementById("clear").onclick = clearHighscores;
-// run function when page loads
-printHighscores();
-
-
 
 // Clear Highscores - Nice to Have
-clearButton.addEventListener("click", startQuiz);
+// document.getElementById("clear").onclick = clearHighscores;
 
 // Go Back - Nice to Have
 startButton.addEventListener("click", startQuiz);
+
+printHighscores();
 
