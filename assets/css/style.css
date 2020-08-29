@@ -23,3 +23,49 @@ header {
 .hide {
     /* display: none; */
 }
+
+/* Start Screen Styles */
+#start-screen {
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#start-btn {
+    color: var(--secondary-text-color);
+    background-color: var(--button-color);
+    height: 50px;
+    width: 150px;
+    font-size: 20px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Question Styling */
+#questions {
+    margin: 0 auto;
+    padding: 20px 20px;
+    text-align: center;
+    /* display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center; */
+}
+
+.optionsButtons {
+    color: var(--secondary-text-color);
+    background-color: var(--button-color);
+    height: 50px;
+    width: 150px;
+    font-size: 20px;
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+}
+
