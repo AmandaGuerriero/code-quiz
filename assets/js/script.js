@@ -9,13 +9,17 @@ var goBackButton = document.getElementById("go-back-btn");
 var clearButton = document.getElementById("clear-btn");
 var optionsEl = document.getElementById("options");
 var startScreenEl = document.getElementById("start-screen");
+var secondsRemaining = questions.length * 15
 
 
 // Start Quiz Function
 var startQuiz = function () {
     
-// Hide Start Screen
-startScreenEl.setAttribute("class", "hide");
+    // Start Timer
+    startTimer ();
+    
+    // Hide Start Screen
+    startScreenEl.setAttribute("class", "hide");
 
     // Display Questions
     showQuestions(currentQuestionIndex);
@@ -24,18 +28,7 @@ startScreenEl.setAttribute("class", "hide");
 // Show Questions Function
 var showQuestions = function() {
     questionsEl.removeAttribute ("class", "hide");
-    // Start Timer
-    var countdownTimer = setInterval(function(){
-        if(timer <= 0){
-        clearInterval(countdownTimer);
-        document.getElementById("timer").innerHTML = "No Time Left";
-        console.log("No Time Left");
-        } else {
-        document.getElementById("timer").innerHTML = timer;
-        }
-        timer -= 1;
-        document.getElementById("timer").innerHTML = "<h1>Timer </h1>" + timer;
-    }, 1000);
+
 
     var currentQuestion = questions[currentQuestionIndex];
 
@@ -59,8 +52,9 @@ var showQuestions = function() {
 var optionsClick = function () {
     console.log ("I was clicked")
     // for(var i = 0; i < questions.length; i++) {
-        if (currentQuestionIndex.answer) {
-            score++;
+    var answer = questions.answer
+        if (answer === currentQuestionIndex.answer) {
+            score + 10;
             console.log("Correct");
         }  {
             timer -= 10;
@@ -74,69 +68,21 @@ var optionsClick = function () {
     }
 //}
 
+// Countdown
+function startTimer() {
+    timer = setInterval(function() {
+        secondsRemaining -= 1;
+        console.log(secondsRemaining);
 
+        var timerDisplay = document.getElementById("timer");
+        timerDisplay.textContent = "Timer " + secondsRemaining;
 
-// document.getElementById("questions").textContent = questions;
-
-
-// Save Score and initials to local Storage
-// function saveHighscore() {
-//     // get value of input box
-//     var initials = initialsEl.value.trim();
-//     // make sure value wasn't empty
-//     if (initials !== "") {
-//       // get saved scores from localstorage, or if not any, set to empty array
-//       var highscores =
-//         JSON.parse(window.localStorage.getItem("highscores")) || [];
-//       // format new score object for current user
-//       var newScore = {
-//         score: time,
-//         initials: initials
-//       };
-//       // save to localstorage
-//       highscores.push(newScore);
-//       window.localStorage.setItem("highscores", JSON.stringify(highscores));
-//       // redirect to next page
-//       window.location.href = "highscores.html";
-//     }
-//   }
-//   function checkForEnter(event) {
-//     // "13" represents the enter key
-//     if (event.key === "Enter") {
-//       saveHighscore();
-//     }
-//   }
-//   // user clicks button to submit initials
-//   submitBtn.onclick = saveHighscore;
-//   // user clicks button to start quiz
-//   startBtn.onclick = startQuiz;
-//   initialsEl.onkeyup = checkForEnter;
-
-
-// Show All Scores 
-// function printHighscores() {
-//     // either get scores from localstorage or set to empty array
-//     var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
-//     // sort highscores by score property in descending order
-//     highscores.sort(function (a, b) {
-//       return b.score - a.score;
-//     });
-//     highscores.forEach(function (score) {
-//       // create li tag for each high score
-//       var liTag = document.createElement("li");
-//       liTag.textContent = score.initials + " - " + score.score;
-//       // display on page
-//       var olEl = document.getElementById("highscores");
-//       olEl.appendChild(liTag);
-//     });
-//   }
-//   function clearHighscores() {
-//     window.localStorage.removeItem("highscores");
-//     window.location.reload();
-//   }
-//   document.getElementById("clear").onclick = clearHighscores;
-//   // run function when page loads
-//   printHighscores();
+        if (secondsRemaining === 0) {
+            clearInterval(timer);
+            window.location.href = "highscore.html";
+        }
+    }, 1000);
+}
 
 
 // Clear Highscores - Nice to Have
