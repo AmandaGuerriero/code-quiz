@@ -113,3 +113,11 @@
     background-color: var(--high-score);
 }
 
+/* High Scores Page Styles */
+#highscores {
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
