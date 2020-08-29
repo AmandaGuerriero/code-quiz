@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
+    <!-- Timer & View High Scores -->
     <header class ="top">
         <div id="timer">
         </div>
@@ -15,31 +16,38 @@
             <p><a href="./highscore.html">View High Scores</a></p>
         </div>
     </header>
+
+    <!-- Main Quiz Section -->
     <main class="wrapper">
+        <!-- Start Screen -->
         <div id="start-screen" class="start">
             <h1>Coding Quiz</h1></br >
             <p>Try to answer the code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by 15 seconds!</p>
             <button id="start-btn" class="btn">Start Quiz</button>
         </div>
+        <!-- Questions -->
         <div id="questions" class="hide">
             <h2 id="q-title"></h2>
             <div id="options"></div>
+            <div id="answer-select"><p></p></div>
         </div>
-        <div id="score-screen">
+        <!-- End of Quiz / Scores Screen -->
+        <div id="score-screen" class="hide">
             <div class="scores-info">
                 <h1>All Done!</h1>
                 <h2>Your score is <span id="score"></span></h2>
-                <p>Enter initials</p>
-                <button id="submit-btn" class = "btn"><a href="./highscore.html">Submit</a></button>
+                <p>
+                    Enter initials: <input type="text" id="initials" name="" />
+                    <button id="submit-btn" class = "btn"><a href="./highscore.html">Submit</a></button>
+                </p>
             </div>
-            <button id="go-back-btn" class="btn">Go Back</button>
+            <button id="go-back-btn" class="btn"><a href="./index.html">Go Back</a></button>
             <button id="clear-btn" class="btn">Clear High Scores</button>
         </div>
-
     </main>
-    <footer>
+    <footer></footer>
 
-    </footer>
+    <!-- JS References -->
     <script src="./assets/js/questions.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>

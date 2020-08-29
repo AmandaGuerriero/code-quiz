@@ -1,7 +1,7 @@
 // Global Variables
 var body = document.body;
 var score = 0;
-var timer = 60;
+var timer = 75;
 var currentQuestionIndex = 0;
 var startButton = document.getElementById("start-btn");
 var questionsEl = document.getElementById("questions");
@@ -10,13 +10,13 @@ var clearButton = document.getElementById("clear-btn");
 var optionsEl = document.getElementById("options");
 var startScreenEl = document.getElementById("start-screen");
 var secondsRemaining = questions.length * 15
-var scoreScreenEl = document.getElementById("start-screen");
+var scoreScreenEl = document.getElementById("score-screen");
+var initialsEl = document.getElementById("initials");
+var submitBtn = document.getElementById("submit-btn");
 
 
 // Start Quiz Function
 var startQuiz = function () {
-    
-    // Start Timer
     startTimer ();
     
     // Hide Start Screen
@@ -26,7 +26,7 @@ var startQuiz = function () {
     showQuestions(currentQuestionIndex);
 }
 
-// Show Questions Function
+// Display Questions Function
 var showQuestions = function() {
     questionsEl.removeAttribute ("class", "hide");
 
@@ -50,33 +50,40 @@ var showQuestions = function() {
         
 }
 
+// Answer Selection Function
 var optionsClick = function () {
     console.log ("I was clicked")
+    // Get correct answer
     var currentAnswer = questions[currentQuestionIndex];
     var answer = currentAnswer.answer;
     console.log(answer);
-    if (answer) {
-        // This is correct
+    // If correct
+    if (answer === this.value) {
         score += 10;
+        document.getElementById("answer-select").innerHTML = "Last answer was correct!";
         console.log (score)
         console.log ("This is correct")
-      } else {
-        // This is incorrect.
-        timer -= 10;
+    // If incorrect  
+    } else {
+        secondsRemaining -= 15;
+        document.getElementById("answer-select").innerHTML = "Last answer was wrong!";
         console.log ("This is wrong")
       }
-    currentQuestionIndex ++; {
+    // Increment Question Number by 1
+    currentQuestionIndex ++; 
+        // Go to next question
         if (currentQuestionIndex < questions.length) {
             showQuestions();
         }
+        // End Quiz
         else {
             endQuiz();
+            console.log("This is the end");
         }
-    }
 }
 //}
 
-// Countdown
+// Timer Countdown Function
 function startTimer() {
     timer = setInterval(function() {
         secondsRemaining -= 1;
@@ -87,17 +94,18 @@ function startTimer() {
 
         if (secondsRemaining === 0) {
             clearInterval(timer);
-            window.location.href = "highscore.html";
+            endQuiz ();
         }
     }, 1000);
 }
 
-// End the Quiz
+// End the Quiz Function
 function endQuiz() {
-    startScreenEl.setAttribute ("class", "hide");
+    // startScreenEl.setAttribute ("class", "hide");
     questionsEl.setAttribute ("class", "hide");
     scoreScreenEl.removeAttribute ("class", "hide");
 }
+
 
 // Clear Highscores - Nice to Have
 clearButton.addEventListener("click", startQuiz);
