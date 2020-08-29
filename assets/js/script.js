@@ -2,21 +2,49 @@
 var body = document.body;
 var score = 0;
 var timer = 60;
+var currentQuestionIndex = 0;
 var startButton = document.getElementById("start-btn");
 var questionsEl = document.getElementById("questions");
 var optionsEl = document.getElementById("options");
 
 
-// Start Quiz
+// Start Quiz Function
 var startQuiz = function () {
-    var startScreenEl = document.getElementById("start-screen");
-    startScreenEl.setAttribute("class", "hide");
-}
+    
 // Hide Start Screen
+var startScreenEl = document.getElementById("start-screen");
+    startScreenEl.setAttribute("class", "hide");
 
 // Display Questions
-// displayQuestion ();
+showQuestions();
+}
 
+// Show Questions Function
+var showQuestions = function() {
+    var currentQuestion = questions[currentQuestionIndex];
+    
+    // var optionsEl = document.getElementById("options")
+    // optionsEl.innerHTML = "";
+
+    questions.forEach((titleEl, optionsEl) => {
+        var titleEl = document.getElementById("q-title");
+        titleEl.textContent = currentQuestion.question;
+        var optionsEl = document.getElementById("options")
+        optionsEl.innerHTML = currentQuestion.options;
+    });
+
+    for(var i = 0; i < questions.length; i++) {
+        var answer = (questions[i].question);
+        if (answer === questions[i].answer) {
+            score++;
+            console.log("Correct");
+        }    
+        else {
+            timer -= 15;
+            console.log("Wrong");
+        }
+    }
+}
 
 
 
@@ -35,7 +63,7 @@ var countdownTimer = setInterval(function(){
 }, 1000);
 
 // Set Question & Answer Text
-var questions = [
+const questions = [
     {
         question: "Commonly used data types DO NOT include_______.",
         options: ["strings", "booleans", "numbers", "alerts"],
@@ -69,20 +97,9 @@ var questions = [
 
 // document.getElementById("questions").textContent = questions;
 
- for(var i = 0; i < questions.length; i++) {
-     var answer = prompt(questions[i].question);
-     if (answer === questions[i].answer) {
-         score++;
-         alert("Correct");
-     }
-     else {
-         timer -= 15;
-         alert("Wrong");
-     }
- }
 
 // Show User's Score
-alert("You Scored" + score + " points.");
+console.log("You Scored" + score + " points.");
 
 // Save Score and initials to local Storage
 
