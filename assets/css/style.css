@@ -1,0 +1,149 @@
+/* Global Styles Start */
+:root {
+    --backround-color: #f5f5dc;  
+    --primary-text-color: #000000;
+    --secondary-text-color: #ffffff;
+    --button-color: #340034 ;
+    --button-hover-color: #ce00ce;
+    --high-score: #b19cd9;
+}
+
+body {
+    background-color: var (var(--backround-color));
+}
+
+.hide {
+    display: none;
+}
+
+/* Header Styles */
+.top {
+    display: inline;
+}
+
+#timer {
+    text-align: right;
+}
+
+#scores {
+    text-align: left;
+}
+
+#scores a {
+    color: var(--high-score);
+}
+
+/* Start Screen Styles */
+#start-screen {
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin: 0 auto;
+}
+
+#start-screen p {
+    font-size: 20px;
+    font-weight: lighter;
+}
+
+#start-btn {
+    color: var(--secondary-text-color);
+    background-color: var(--button-color);
+    height: 50px;
+    width: 150px;
+    font-size: 20px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#start-btn:hover {
+    background-color: var(--button-hover-color);
+}
+
+/* Question Styling */
+#questions {
+    margin: 0 auto;
+    padding: 20px 20px;
+    text-align: center;
+    align-items: center;
+    /* display: flex; */
+    /* flex-wrap: wrap;
+    justify-content: space-around; */
+    
+}
+
+.optionsButtons {
+    color: var(--secondary-text-color);
+    background-color: var(--button-color);
+    height: 50px;
+    width: 225px;
+    font-size: 20px;
+    margin: 10px 10px;
+    vertical-align: middle
+}
+
+.optionsButtons:hover {
+    background-color: var(--button-hover-color);
+}
+
+#answer-select {
+    width: 50%;
+    margin: 0 auto;
+    border-top: 2px solid var(--high-score);
+    padding-top: 25px;
+    color: var(--high-score);
+    font-size: 20px;
+    font-style: italic;
+}
+
+/* Scores Styles */
+#score-screen {
+    text-align: center;
+}
+.scores-info {
+    display: block;
+    margin: 20px 20px;
+}
+
+.btn, .btn a {
+    color: var(--secondary-text-color);
+    background-color: var(--button-color);
+    height: 30px;
+    width: 150px;
+    font-size: 20px;
+    margin: 10px 10px;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: var(--high-score);
+}
+
+/* High Scores Page Styles */
+#highscores {
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin: 0 auto;
+}
+
+#high-score-list {
+    text-align: center;
+}
+li {
+    text-align: left;
+    background-color: var(--high-score);
+    border: 2px solid var(--primary-text-color);
+    padding: 5px;
+    margin: 2px;
+}
+
