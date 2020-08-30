@@ -3,30 +3,30 @@ const questions = [
     {
         question: "Commonly used data types DO NOT include_______.",
         options: ["strings", "booleans", "numbers", "alerts"],
-        answer: "strings"
+        answer: "alerts"
     },
     
     {
         question: "The condition in an if / else statement is enclosed within_______.",
         options: ["quotes", "curly brackets", "parentheses", "square brackets"],
-        answer: "quotes"
+        answer: "curly brackets"
     },
 
     {
         question: "Arrays in Javascript can be used to store_______.",
         options: ["numbers and strings", "other arrays", "booleans", "all of the above"],
-        answer: "numbers"
+        answer: "all of the above"
     },
 
     {
         question: "Sting values must be enclosed within ________ when being assigned to variables",
         options: ["commas", "curly brackets", "quotes", "parentheses"],
-        answer: "commas"
+        answer: "quotes"
     },
 
     {
-        question: "A very useful tool used during development",
-        options: ["1", "2", "3", "4"],
-        answer: "1"
+        question: "A very useful tool used during development and debugging for printing content to the debugger is:",
+        options: ["JavaScript", "terminal/bash", "for loops", "console.log"],
+        answer: "console.log"
     }
 ]

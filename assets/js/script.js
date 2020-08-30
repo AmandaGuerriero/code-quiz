@@ -126,12 +126,21 @@ function saveHighscore() {
         window.localStorage.setItem("highscores", JSON.stringify(highscores));
         
         // Redirect to High Scores Page
-        window.location.href = "highscores.html";
+        window.location.href = "highscore.html";
     }
 }
 
+// Submit with enter function
+function checkForEnter(event) {
+    if (event.key === "Enter") {
+      saveHighscore();
+    }
+  }
+  
 // Submit Initials
 submitBtn.onclick = saveHighscore;
 
 // Go Back - Nice to Have
 startButton.addEventListener("click", startQuiz);
+
+initialsEl.onkeyup = checkForEnter;

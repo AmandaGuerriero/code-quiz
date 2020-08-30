@@ -81,7 +81,7 @@ body {
     color: var(--secondary-text-color);
     background-color: var(--button-color);
     height: 50px;
-    width: 150px;
+    width: 225px;
     font-size: 20px;
     margin: 10px 10px;
     vertical-align: middle
@@ -132,5 +132,18 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    width: 50%;
+    margin: 0 auto;
+}
+
+#high-score-list {
+    text-align: center;
+}
+li {
+    text-align: left;
+    background-color: var(--high-score);
+    border: 2px solid var(--primary-text-color);
+    padding: 5px;
+    margin: 2px;
 }
 
