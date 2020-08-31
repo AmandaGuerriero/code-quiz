@@ -94,6 +94,7 @@ function startTimer() {
         // When time runs out - Remove Timer and End Quiz 
         if (secondsRemaining === 0) {
             clearInterval(timer);
+            console.log("this is the end");
             endQuiz ();
         }
     }, 1000);
@@ -102,6 +103,7 @@ function startTimer() {
 // End Quiz Function
 function endQuiz() {
     timerEl.setAttribute ("class", "hide"); 
+    clearInterval(timer);
     questionsEl.setAttribute ("class", "hide");
     scoreScreenEl.removeAttribute ("class", "hide");
     document.getElementById("score").innerHTML = "Your final score is " + score;
